@@ -43,6 +43,12 @@ export class StudentService {
 
 
       }
+      deleteStudent(id: string):Observable<Student>
+      {
+        return this.httpClient.delete<Student>(this.apiBaseUrl+'/Students/'+id);
+
+
+      }
 
 
 
