@@ -24,8 +24,9 @@
                 type="text"
                 matInput
                 [(ngModel)]="student.firstName"
-                name="firstName"
+                name="firstName" required
               />
+              <mat-error>first name is a required field</mat-error>
             </mat-form-field>
           </div>
           <div class="col-xs-6">
@@ -35,8 +36,9 @@
                 type="text"
                 matInput
                 [(ngModel)]="student.lastName"
-                name="lastName"
+                name="lastName" required
               />
+              <mat-error>last name is a required field</mat-error>
             </mat-form-field>
           </div>
         </div>
@@ -48,8 +50,9 @@
                 matInput
                 [matDatepicker]="picker"
                 [(ngModel)]="student.dateOfBirth"
-                name="dateOfBirth"
+                name="dateOfBirth" required
               />
+              <mat-error>Date of Birth is a required field</mat-error>
               <mat-datepicker-toggle
                 matSuffix
                 [for]="picker"
@@ -66,8 +69,9 @@
                 type="text"
                 matInput
                 [(ngModel)]="student.email"
-                name="email"
+                name="email" required
               />
+              <mat-error>email is a required field</mat-error>
             </mat-form-field>
           </div>
           <div class="col-xs-6">
@@ -77,8 +81,9 @@
                 type="number"
                 matInput
                 [(ngModel)]="student.mobile"
-                name="mobile"
+                name="mobile" required
               />
+              <mat-error>mobile is a required field</mat-error>
             </mat-form-field>
           </div>
         </div>
@@ -104,8 +109,9 @@
               <textarea
                 matInput
                 [(ngModel)]="student.address.physicalAddress"
-                name="physicalAddress"
+                name="physicalAddress" required
               ></textarea>
+              <mat-error>Physical address is a required field</mat-error>
             </mat-form-field>
           </div>
         </div>
@@ -116,8 +122,9 @@
               <textarea
                 matInput
                 [(ngModel)]="student.address.postalAddress"
-                name="postalAddress"
+                name="postalAddress" required
               ></textarea>
+              <mat-error>postal address is a required field</mat-error>
             </mat-form-field>
           </div>
         </div>
@@ -136,11 +143,27 @@
                 Add
               </button>
             </div>
-
           </div>
         </div>
       </form>
     </div>
-    <div class="col-xs-6"></div>
+    <div class="col-xs-6">
+      <div class="row center-xs">
+        <div class="image-container">
+          <img [src]="displayProfileImageUrl" alt="Profile Image" />
+
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <input hidden type="file" #imageUpload (change)="uploadImage($event)">
+          <button mat-raised-button color="primary"
+              (click)="imageUpload.click()"
+           >Change Image</button>
+        </div>
+
+      </div>
+    </div>
   </div>
 </div>

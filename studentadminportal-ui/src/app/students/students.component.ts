@@ -44,7 +44,12 @@ export class StudentsComponent implements OnInit {
       );
   }
 
+
+
   filterStudent(){
     this.dataSource.filter= this.filterString.trim().toLowerCase();
   }
+
+
+
 }

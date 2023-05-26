@@ -67,6 +67,25 @@ export class StudentService {
 
       }
 
+      uploadImage(studentId:string, file:File) : Observable<any>
+      {
+        const formData = new FormData();
+        formData.append('profileImage', file);
+        return this.httpClient.post(
+          this.apiBaseUrl+'/Students/'+studentId+'/upload-image',
+          formData,{
+            responseType:'text'
+          }
+        );
+
+      }
+      getImagePath(relativePath :string){
+        return `${this.apiBaseUrl}+${relativePath}`;
+
+      }
+
+
+
 
 
 }
